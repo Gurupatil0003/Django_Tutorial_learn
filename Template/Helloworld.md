@@ -13,7 +13,7 @@ python manage.py startapp myapp
 - Define a View: In Django, views are Python functions that take web requests and return web responses. Open the views.py file inside your app (myapp/views.py) and define a simple view like this:
 
 ```python
- 
+ #myapp/views.py
 from django.http import HttpResponse
 
 def hello_world(request):
@@ -22,6 +22,7 @@ def hello_world(request):
 - URL Mapping: You need to map your view to a URL so that Django knows which view to execute when a specific URL is requested. Open the urls.py file inside your app (myapp/urls.py) and define a URL pattern like this:
 
 ```python
+#myapp/urls.py
 from django.urls import path
 from . import views
 
@@ -32,7 +33,7 @@ urlpatterns = [
 - Include the App URLs in the Project URLs: Open the urls.py file inside your project (myproject/urls.py) and include the URLs of your app like this:
 
 ```python
-Copy code
+#myproject/urls.py
 from django.contrib import admin
 from django.urls import include, path
 
@@ -46,4 +47,4 @@ urlpatterns = [
 ```python
 python manage.py runserver
 ```
-Access the Hello World Page: Open your web browser and go to http://127.0.0.1:8000/ (or http://localhost:8000/). You should see "Hello, World!" displayed on the page.
+- Access the Hello World Page: Open your web browser and go to http://127.0.0.1:8000/ (or http://localhost:8000/). You should see "Hello, World!" displayed on the page.
