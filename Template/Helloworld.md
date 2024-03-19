@@ -1,3 +1,4 @@
+# Hello world In Django
 - Install Django: If you haven't already installed Django, you can do so using pip, Python's package manager. You can install Django by running pip install django in your command line or terminal.
 
 - Create a Django Project: You can create a new Django project using the django-admin command-line utility. Navigate to the directory where you want to create your project and run the following command:
