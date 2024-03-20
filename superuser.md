@@ -1,3 +1,4 @@
+### Create ur project 
 ```python
 django-admin startproject myproject
 ```
@@ -6,13 +7,19 @@ django-admin startproject myproject
 python -m django startproject mysite
 
 ```
+### Create Ur app
+```python
+django-admin startapp myapp
+```
 
-
+### makemigrations is a management command
 ```python
 python manage.py makemigrations
 
 ```
 
+
+migrate is a management command
 ```python
 python manage.py migrate
 ```
@@ -24,14 +31,18 @@ python manage.py runserver
 python manage.py createsuperuser
 ```
 
+## run your server
 
 ```python
 python manage.py runserver
 
 ```
+### Use below url /admin with current localhost
 ```python
  Use thsis url http://127.0.0.1:8000/admin
 ```
+
+
 ### output
 ```python
 
