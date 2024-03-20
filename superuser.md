@@ -54,15 +54,27 @@ Password (again):
 Bypass password validation and create user anyway? [y/N]: y        
 Superuser created successfully.
 ```
+```python
+python manage.py shell
+
+```
+
+```python
+from django.contrib.auth.models import User
+user = User.objects.create_superuser(username='Gurupatil',
+                                 email='gurupatil327@gmai.com',
+                                 password='ur')
+```
+```python
+user.is_staff
+False
+ user.is_active
+True
+ user.is_superuser
+False
 
 
-
-
-
-
-
-
-
+```
 
 
 ### makemigrations:
