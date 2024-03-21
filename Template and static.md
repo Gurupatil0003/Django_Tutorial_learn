@@ -45,7 +45,19 @@ STATICFILES_DIRS = [
 
 
 ~~~
+URL configuration at the project level:
+Open the urls.py file in your project directory (myproject). Define URL patterns for your Django app (myapp) within the project's urls.py file. For example:
 
+~~~python
+
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('myapp.urls')),  # Include app-specific URLs
+]
+~~~
 Create CSS file:
 Inside the myapp directory, create a folder named static and inside that folder create another folder named css. Then, create a CSS file named style.css inside the css folder. Here's an example CSS code:
 
@@ -65,6 +77,19 @@ URL configuration:
 In your Django app's urls.py file, create a URL pattern to map to your HTML page. For example:
 
 ~~~python
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.index, name='index'),
+]
+
+~~~
+
+URL configuration at the app level:
+Keep the URL configuration within your app (myapp) unchanged as shown in the previous response:
+
+~~~python
 
 from django.urls import path
 from . import views
@@ -73,7 +98,6 @@ urlpatterns = [
     path('', views.index, name='index'),
 ]
 ~~~
-
 View function:
 In your Django app's views.py file, create a view function to render the HTML page. For example:
 
