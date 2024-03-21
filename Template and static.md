@@ -31,6 +31,20 @@ html
 </html>
 
 ~~~
+Configure settings:
+In your Django project's settings file (settings.py), make sure you have the following configurations:
+
+~~~python
+
+STATIC_URL = '/static/'
+
+# Add the following line if STATICFILES_DIRS is not already defined
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'myapp/static'),
+]
+
+
+~~~
 
 Create CSS file:
 Inside the myapp directory, create a folder named static and inside that folder create another folder named css. Then, create a CSS file named style.css inside the css folder. Here's an example CSS code:
