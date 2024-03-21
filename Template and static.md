@@ -6,7 +6,7 @@ django-admin startproject myproject
 ~~~
 Create a Django app:
 Navigate to your project directory and create a Django app using the following commands
-~~python
+~~~python
 cd myproject
 python manage.py startapp myapp
 
@@ -14,9 +14,9 @@ python manage.py startapp myapp
 ~~~
 Create HTML file:
 Inside the myapp directory, create an HTML file. Let's name it index.html. You can do this manually or by using a text editor. Here's a basic HTML structure you can start with:
-~~~python
-html
 
+html
+~~~python
 <!DOCTYPE html>
 <html lang="en">
 <head>
