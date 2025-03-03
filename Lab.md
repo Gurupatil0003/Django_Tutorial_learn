@@ -272,8 +272,98 @@ This approach enhances user experience by providing instant feedback without rel
 🚀 Congratulations! You've successfully implemented Django form submission without page refresh using Ajax! Let me know if you have any questions.
 
 
+### lab 2
+- Steps to Build a Debugging Web Application in Django
+- Create a Django Project: Start by creating a Django project.
+- If you haven't done that yet, run the following commands:
+
+```python
+pip install virtualenv
+
+python -m venv myenv
+
+myenv\Scripts\activate
 
 
+pip install django
+```
+```python
+
+django-admin startproject debug_app
+cd debug_app
+
+```
+
+```python
+
+python manage.py startapp main
+```
+- Configure settings.py:
+- Open debug_app/settings.py and ensure the DEBUG mode is turned on. 
+- By default, Django sets DEBUG = True for development purposes, but you can verify it here.
+ ```python
+DEBUG = True  # Make sure this is set to True during development
+
+```
+- Set Up URL Patterns: Open debug_app/urls.py and add the main app to the URL configurations:
+``` python
+
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('main.urls')),  # Include the URLs from the 'main' app
+]
+```
+
+- Create main/urls.py:
+-  Inside the main app directory, create a urls.py file to define the URLs for the views that will trigger errors and exceptions.
+  main/urls.py:
+
+from django.urls import path
+```python
+from . import views
+from django.urls import path, include
+
+
+urlpatterns = [
+    path('', views.index, name='index'),
+    path('error/', views.error_view, name='error_view'),  # Add an endpoint that causes an error
+]
+
+urlpatterns = [
+    path('', views.index, name='index'),
+    path('error/', views.error_view, name='error_view'),  # Add an endpoint that causes an error
+]
+```
+
+- Create Views to Trigger Errors:
+- Open main/views.py and create two views:
+
+- One view (index) that works correctly.
+- One view (error_view) that intentionally triggers an error.
+  main/views.py:
+
+ ``` python
+from django.shortcuts import render
+from django.http import HttpResponse
+
+def index(request):
+   return HttpResponse("Welcome to the Debugging App!")
+
+def error_view(request):
+   try:
+       result = 1 / 0  # This will raise a ZeroDivisionError
+   except ZeroDivisionError as e:
+       # Handle the error, log it, or display a friendly error message
+       return HttpResponse("Oops! Something went wrong. Please try again later.")
+
+```
+- Run the Development Server: With Django’s DEBUG = True, Django will display detailed error pages for any unhandled exceptions. Start the development server:
+  ``` python
+  python manage.py runserver
+```
 
 
 
