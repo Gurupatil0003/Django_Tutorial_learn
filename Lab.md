@@ -214,7 +214,7 @@ def error_view(request):
 
 ```
 - Run the Development Server: With Django’s DEBUG = True, Django will display detailed error pages for any unhandled exceptions. Start the development server:
-  ``` python
+``` python
   python manage.py runserver
 ```
 
