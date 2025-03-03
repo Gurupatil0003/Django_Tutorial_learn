@@ -220,3 +220,126 @@ def error_view(request):
 
 
 
+
+# Lab 3 Ajax
+
+```python 
+
+pip install virtualenv
+
+python -m venv myenv
+
+myenv\Scripts\activate
+
+
+pip install django
+
+```
+
+# Setups
+
+```python
+django-admin startproject project1
+
+cd project1
+```
+
+# then next  create ur view.py file and add this code i mentioned here
+
+```python
+
+from django.shortcuts import render
+from django.http import JsonResponse
+def home(request):
+    return render(request, 'index.html')
+
+def python_funct(request):
+      #do something with the data passed
+
+      fname=request.GET.get('fname',None)
+      lname=request.GET.get('lname',None)
+      fullname= fname+' '+lname
+      #fullname= 33
+      response = {
+        'fullname': fullname
+         }
+      return JsonResponse(response)
+```
+# create a folder templates/html file. Add this code here below
+```python
+
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+function fullName() {
+//var fname= document.getElementById("fname").value;
+//var lname= document.getElementById("lname").value;
+//var fullname={%url "python_funct"%}
+
+//ajax call to python function
+//$("#datadiv").find("select, textarea, input").serialize()
+$.ajax({data:$("#datadiv").find("input").serialize(),
+url: "{% url 'python_funct' %}",
+type: "GET",
+success: successFunc,
+error: errorFunc
+});
+
+function successFunc(response) {
+        //alert('ok');
+        document.getElementById("p1").innerHTML = response.fullname;
+    }
+function errorFunc() {
+        alert('error');
+    }
+
+//fullname=2;
+//var fullname=2;
+
+}
+</script>
+</head>
+
+<body>
+
+<div align=center id="datadiv">
+<p>Hello!</p>
+First Name :<input type=text name=fname id=fname><br>
+Last Name  :<input type=text name=lname id=lname><br>
+<button onclick="fullName()">What's full name?</button>
+<p id="p1">t</p>
+<div>
+
+</body>
+</html>
+```
+
+# After that url creation look into urls.py file and add this file
+
+```python
+
+"""project1 URL Configuration
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/3.2/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+from django.contrib import admin
+from django.urls import path
+from project1 import views
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', views.home, name='home'),
+    path('pfunct', views.python_funct, name='python_funct'),
+]
+```
