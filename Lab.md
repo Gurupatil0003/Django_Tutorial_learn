@@ -149,7 +149,7 @@ cd debug_app
 
 ```python
 
-python manage.py startapp main
+django-admin startapp main
 ```
 - Configure settings.py:
 - Open debug_app/settings.py and ensure the DEBUG mode is turned on. 
