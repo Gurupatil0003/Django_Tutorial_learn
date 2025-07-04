@@ -104,14 +104,17 @@ pages/
 
 # home.html
 ```python
+
 <!DOCTYPE html>
 <html>
 <head><title>Home</title></head>
 <body>
     <h1>Hello from Home Page</h1>
-    <a href="/about/">About</a> | <a href="/contact/">Contact</a>
+    <a href="/about/">About</a> | <a href="/contact/">Contact</a> | <a href="/feedback/">Feedback</a>
+
 </body>
 </html>
+
 
 
 ```
