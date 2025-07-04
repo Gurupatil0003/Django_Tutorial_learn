@@ -1,3 +1,112 @@
+## Basic 
+
+## Creation
+```
+django-admin startproject mysite
+cd mysite
+python manage.py startapp blogs
+```
+
+## setup
+```python
+INSTALLED_APPS = [
+    ...
+    'pages',
+]
+
+
+```
+
+
+## blogs/views.py
+```python
+
+from django.shortcuts import render
+
+def home(request):
+    return render(request, 'pages/home.html')
+
+def about(request):
+    return render(request, 'pages/about.html')
+
+def contact(request):
+    return render(request, 'pages/contact.html')
+
+```
+
+## blog/urls.py
+```python
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.home),
+    path('about/', views.about),
+    path('contact/', views.contact),
+]
+
+
+```
+
+## mysite/urls.py
+```python
+
+
+```
+
+
+```python
+pages/
+│
+├── templates/
+│   └── pages/
+│       ├── home.html
+│       ├── about.html
+│       └── contact.html
+
+```
+
+# home.html
+```python
+<!DOCTYPE html>
+<html>
+<head><title>Home</title></head>
+<body>
+    <h1>Hello from Home Page</h1>
+    <a href="/about/">About</a> | <a href="/contact/">Contact</a>
+</body>
+</html>
+
+
+```
+
+## about.html
+```python
+<!DOCTYPE html>
+<html>
+<head><title>About</title></head>
+<body>
+    <h1>This is About Page</h1>
+    <a href="/">Home</a> | <a href="/contact/">Contact</a>
+</body>
+</html>
+
+```
+
+## contact.html
+```
+<!DOCTYPE html>
+<html>
+<head><title>Contact</title></head>
+<body>
+    <h1>This is Contact Page</h1>
+    <a href="/">Home</a> | <a href="/about/">About</a>
+</body>
+</html>
+
+```
+
+
 ### 🎯 Folder Setup
 
 ```python
