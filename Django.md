@@ -330,3 +330,36 @@ python manage.py runserver
 ```
 
 
+## Boostrap
+```python
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <!-- ✅ Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+    <div class="container mt-5 text-center">
+        <h1 class="mb-4 text-primary">👋 Hello from Home Page</h1>
+
+        <!-- Navigation Links -->
+        <div class="btn-group" role="group" aria-label="Navigation">
+            <a href="/about/" class="btn btn-outline-primary">About</a>
+            <a href="/contact/" class="btn btn-outline-success">Contact</a>
+            <a href="/feedback/" class="btn btn-outline-warning">Feedback</a>
+        </div>
+    </div>
+
+    <!-- ✅ Bootstrap JS (Optional, for interactivity like dropdowns) -->
+</body>
+</html>
+
+
+```
+
+
+
+
