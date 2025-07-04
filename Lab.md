@@ -1,5 +1,13 @@
 
 ```python
+pip install virtualenv  
+virtualenv venv   
+venv\Scripts\activate
+
+```
+
+
+```python
 pip install django
 ```
 
