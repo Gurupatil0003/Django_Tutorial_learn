@@ -6,6 +6,10 @@ virtualenv venv
 venv\Scripts\activate
 
 
+source venv/bin/activate
+
+
+
 pip install django
 ```
 
